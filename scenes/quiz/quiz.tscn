@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwd24he42la7n"]
+
+[ext_resource type="Texture2D" uid="uid://bfls8yufo6smx" path="res://scenes/quiz/visuals/illustration.png" id="1_ery2y"]
+[ext_resource type="Texture2D" uid="uid://cdaw3mlpppiu4" path="res://scenes/shared/visuals/circle_512.png" id="2_06dpd"]
+
+[sub_resource type="Gradient" id="Gradient_xb1ce"]
+colors = PackedColorArray(0.900443, 0.885987, 0.895544, 1, 0.615345, 0.598594, 0.623469, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s0x65"]
+gradient = SubResource("Gradient_xb1ce")
+width = 1920
+height = 1080
+fill_to = Vector2(1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p8b5"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Quiz" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_s0x65")
+
+[node name="Screen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -498.0
+offset_right = 264.0
+offset_bottom = 498.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Screen"]
+modulate = Color(0.462745, 0.145098, 0.941176, 1)
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3p8b5")
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Panel"]
+self_modulate = Color(1, 1, 1, 0.458824)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -524.0
+offset_top = 70.0
+offset_right = 525.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ery2y")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 64.0
+offset_right = -34.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Circle" type="TextureRect" parent="Screen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("2_06dpd")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Avatar" type="TextureRect" parent="Screen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 225)
+layout_mode = 2
+texture = ExtResource("2_06dpd")
+expand_mode = 3
+stretch_mode = 5
